@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Category(models.Model): 
@@ -19,3 +20,7 @@ class FlashCard(models.Model):
     
     def __str__(self):
         return self.front
+    
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"flashcard_id": self.pk})
+    
