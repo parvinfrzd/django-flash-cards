@@ -3,15 +3,14 @@
 
 <h1>Flashcards List</h1>
 
-{% for d in data %}
+{% for f in flashcards %}
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ d.category }}</span>
-      <p>Front: {{ d.front }}</p>
-      <p>Back: {{ d.back }}</p>
-      <p>Creator: {{ d.creator }}</p>
-      <p>Likes: {{ d.likes }}</p>
-      {% if d.known == True %}
+      <span class="card-title">{{ f.category }}</span>
+      <p>Front: {{ f.front }}</p>
+      <p>Back: {{ f.back }}</p>
+      <p>Creator: {{ f.creator }}</p>
+      {% if f.is_known == True %}
         <p>Flashcard learned</p>
       {% else %}
         <p>Not learned</p>
