@@ -1,5 +1,7 @@
+from dataclasses import field
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from .models import Category, FlashCard
 
 # Create your views here.
@@ -15,7 +17,9 @@ def index(request):
   
 def detail(request,flashcard_id):
       flashcard = FlashCard.objects.get(id=flashcard_id)
+      print(flashcard.id)
       return render(request, 'flashcards/detail.html', {'flashcard': flashcard})
   
-def new(request): 
-  return render (request, 'flashcards/new.html')
+class FlashcardCreate(CreateView): 
+    model = FlashCard
+    fields = ['front','back','creator','category']
