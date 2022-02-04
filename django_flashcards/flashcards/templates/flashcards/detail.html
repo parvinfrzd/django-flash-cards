@@ -18,6 +18,10 @@
             <span class="card-title grey-text text-darken-4">Answer<i class="material-icons right">close</i></span>
             <p>{{ flashcard.back }}</p>
         </div>
+        <div class="card-action">
+            <a href="{% url 'card_update' flashcard.id %}">Edit</a>
+            <a href="{% url 'card_delete' flashcard.id %}">Delete</a>
+        </div>
 </div>
     
 
