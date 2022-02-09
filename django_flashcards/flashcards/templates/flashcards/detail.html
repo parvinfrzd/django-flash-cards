@@ -22,6 +22,12 @@
             <a href="{% url 'card_update' flashcard.id %}">Edit</a>
             <a href="{% url 'card_delete' flashcard.id %}">Delete</a>
         </div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ category_form.as_p }}
+            <input type="submit" class="btn" value="Add Category">
+          </form>
 </div>
     
 
