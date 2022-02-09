@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'django_flashcards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'flashcards',
+        'NAME': 'flash_cards',
         'USER': 'parvin',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
