@@ -1,8 +1,8 @@
-from dataclasses import field
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.forms import ModelForm
+from .forms import CategoryForm
+
 
 
 from .models import Category, FlashCard
@@ -20,8 +20,9 @@ def index(request):
   
 def detail(request,flashcard_id):
       flashcard = FlashCard.objects.get(id=flashcard_id)
+      category_form = CategoryForm
       print(flashcard.id)
-      return render(request, 'flashcards/detail.html', {'flashcard': flashcard})
+      return render(request, 'flashcards/detail.html', {'flashcard': flashcard, 'category_form': category_form})
   
 class CategoryCreate(CreateView):
     model = Category 
@@ -45,7 +46,7 @@ class FlashcardCreate(CreateView):
  
 class FlashcardUpdate(UpdateView): 
     model = FlashCard
-    fields = ['front','back']
+    fields = ['front','back','is_known']
     
 class FlashcardDelete(DeleteView):
     model = FlashCard
